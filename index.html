@@ -722,6 +722,16 @@
       18% { opacity: .72; }
       100% { opacity: 0; transform: rotateX(76deg) translateY(-18%); }
     }
+    @keyframes introEnvelopeAppear {
+      0% { opacity: 0; transform: scale(.985); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes confettiDropMobile {
+      0% { opacity: 0; transform: translate(-50%, -18%); }
+      14% { opacity: 1; }
+      58% { opacity: 1; transform: translate(-50%, 8%); }
+      100% { opacity: 0; transform: translate(-50%, 22%); }
+    }
 
     @media (max-width: 900px) {
       .scratch-grid { grid-template-columns: 1fr; max-width: 230px; margin: 0 auto 24px; }
@@ -738,6 +748,16 @@
       .letter-section { padding-top: 36px; }
       .letter-video-title { width: min(76vw, 340px); }
       .count-grid { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
+      .confetti-gif.is-confetti-visible {
+        animation: confettiDropMobile 3.8s ease-out forwards;
+      }
+      .intro-image {
+        opacity: 0;
+        animation: introEnvelopeAppear 1.15s ease-out .2s forwards;
+      }
+      .intro.is-opening .intro-image {
+        animation: none;
+      }
       .timeline-board {
         grid-template-columns: 40px minmax(0, 1fr);
         row-gap: 18px;
@@ -774,6 +794,10 @@
       }
       .timeline-marker::before {
         font-size: 32px;
+        transform: none;
+      }
+      body.reveal-ready .timeline-marker.reveal-item:not(.is-visible) {
+        opacity: 1;
         transform: none;
       }
       .timeline-photo,
