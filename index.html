@@ -220,6 +220,7 @@
     .timeline-marker::before {
       content: "♥";
       color: currentColor;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 30px;
       line-height: 1;
       transform: translateX(-2px);
@@ -730,11 +731,27 @@
       .count-grid { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
       .timeline-board {
         grid-template-columns: 34px 1fr;
-        row-gap: 26px;
+        row-gap: 18px;
         width: min(560px, 92vw);
+        align-items: start;
+        padding-top: 42px;
       }
       .timeline-board::before {
         left: 17px;
+        top: 42px;
+        bottom: 0;
+      }
+      .timeline-board::after {
+        content: "♥";
+        position: absolute;
+        left: 17px;
+        top: 0;
+        z-index: 6;
+        transform: translate(-50%, 0);
+        color: #6f5750;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 34px;
+        line-height: 1;
       }
       .timeline-cloud {
         width: min(170vw, 740px);
@@ -749,6 +766,7 @@
         left: 17px;
         width: 42px;
         height: 42px;
+        display: none;
       }
       .timeline-marker {
         grid-column: 1;
@@ -765,7 +783,23 @@
       .timeline-photo {
         width: 100%;
         max-width: 390px;
+        margin: 4px 0 22px;
       }
+      .timeline-marker--welcome { grid-row: 1; }
+      .timeline-copy--welcome { grid-row: 1; }
+      .timeline-photo--welcome { grid-row: 2; }
+      .timeline-marker--ceremony { grid-row: 3; }
+      .timeline-copy--ceremony { grid-row: 3; }
+      .timeline-photo--ceremony { grid-row: 4; }
+      .timeline-marker--cocktail { grid-row: 5; }
+      .timeline-copy--cocktail { grid-row: 5; }
+      .timeline-photo--cocktail { grid-row: 6; }
+      .timeline-marker--luncheon { grid-row: 7; }
+      .timeline-copy--luncheon { grid-row: 7; }
+      .timeline-photo--luncheon { grid-row: 8; }
+      .timeline-marker--after-party { grid-row: 9; }
+      .timeline-copy--after-party { grid-row: 9; }
+      .timeline-photo--after-party { grid-row: 10; margin-bottom: 0; }
       .timeline-copy h3 {
         font-size: 1.35rem;
       }
@@ -928,37 +962,37 @@
       <img class="timeline-cloud one" src="./assets/timeline-cloud-1.png" alt="" aria-hidden="true" />
       <img class="timeline-cloud two" src="./assets/timeline-cloud-2.png" alt="" aria-hidden="true" />
       <img class="timeline-rose" src="./assets/timeline-rose.png" alt="" aria-hidden="true" />
-      <img class="timeline-photo" src="./assets/timeline-welcome.jpg" alt="Welcome reception setup" />
-      <span class="timeline-marker" aria-hidden="true"></span>
-      <article class="timeline-copy right">
+      <img class="timeline-photo timeline-photo--welcome" src="./assets/timeline-welcome.jpg" alt="Welcome reception setup" />
+      <span class="timeline-marker timeline-marker--welcome" aria-hidden="true"></span>
+      <article class="timeline-copy timeline-copy--welcome right">
         <h3>10:00 - 10:30 a.m. | Welcome Reception</h3>
         <p>We invite you to arrive for morning refreshments and gather for a warm welcome.</p>
       </article>
 
-      <article class="timeline-copy left is-wide-note">
+      <article class="timeline-copy timeline-copy--ceremony left is-wide-note">
         <h3>11:00 a.m. | The Wedding Ceremony<br>at The Front Lawn</h3>
         <p>Kindly join us as we exchange our vows, sign our marriage contract, and cut our celebration cake.<br><span class="timeline-note">(Please note the ceremony will commence promptly at 11:00 a.m.)</span></p>
       </article>
-      <span class="timeline-marker" aria-hidden="true"></span>
-      <img class="timeline-photo" src="./assets/wed5-3.jpg" alt="The Front Lawn ceremony setup" />
+      <span class="timeline-marker timeline-marker--ceremony" aria-hidden="true"></span>
+      <img class="timeline-photo timeline-photo--ceremony" src="./assets/wed5-3.jpg" alt="The Front Lawn ceremony setup" />
 
-      <img class="timeline-photo" src="./assets/timeline-cocktail.jpg" alt="Pre-lunch cocktail hour venue" />
-      <span class="timeline-marker" aria-hidden="true"></span>
-      <article class="timeline-copy right is-nowrap">
+      <img class="timeline-photo timeline-photo--cocktail" src="./assets/timeline-cocktail.jpg" alt="Pre-lunch cocktail hour venue" />
+      <span class="timeline-marker timeline-marker--cocktail" aria-hidden="true"></span>
+      <article class="timeline-copy timeline-copy--cocktail right is-nowrap">
         <h3>11:30 a.m. | Pre-lunch Canapes & Cocktail Hour</h3>
         <p>Enjoy pre-lunch canapes alongside a selection of house wines, champagne, The Peninsula Rose Sparkling Tea, and wedding cake.</p>
       </article>
 
-      <article class="timeline-copy left">
+      <article class="timeline-copy timeline-copy--luncheon left">
         <h3>12:30 p.m. | Wedding Luncheon<br>at The Verandah</h3>
         <p>Please join us for lunch, featuring a celebratory Champagne Tower toast.</p>
       </article>
-      <span class="timeline-marker" aria-hidden="true"></span>
-      <img class="timeline-photo" src="./assets/timeline-luncheon.jpg" alt="Wedding luncheon at The Verandah" />
+      <span class="timeline-marker timeline-marker--luncheon" aria-hidden="true"></span>
+      <img class="timeline-photo timeline-photo--luncheon" src="./assets/timeline-luncheon.jpg" alt="Wedding luncheon at The Verandah" />
 
-      <img class="timeline-photo" src="./assets/timeline-after-party.jpg" alt="Farewell and after party venue" />
-      <span class="timeline-marker" aria-hidden="true"></span>
-      <article class="timeline-copy right">
+      <img class="timeline-photo timeline-photo--after-party" src="./assets/timeline-after-party.jpg" alt="Farewell and after party venue" />
+      <span class="timeline-marker timeline-marker--after-party" aria-hidden="true"></span>
+      <article class="timeline-copy timeline-copy--after-party right">
         <h3>3:00 p.m. | Farewell & After Party</h3>
         <p>The formal celebration concludes, and the after-party begins.</p>
       </article>
