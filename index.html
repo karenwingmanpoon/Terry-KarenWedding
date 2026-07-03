@@ -45,6 +45,11 @@
     .hero { position: relative; width: 100vw; height: 100vh; height: 100svh; overflow: hidden; background: var(--bg); }
     .hero img,
     .hero video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero video {
+      filter: contrast(1.08) saturate(1.06) brightness(1.02);
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
     .words { position: absolute; top: 14%; inset-inline: 0; margin: 0 auto; text-align: center; width: min(84vw, 780px); pointer-events: none; }
     .line1 { margin: 0; font-family: "Pinyon Script", cursive; font-size: clamp(2.35rem, 7vw, 5.45rem); line-height: 1; color: #6a514b; text-shadow: 0 2px 10px rgba(68,53,33,.15); }
     .line2 { margin: 10px 0 0; font-size: clamp(1.05rem, 2vw, 1.55rem); line-height: 1.25; color: #6a514b; text-shadow: 0 2px 8px rgba(68,53,33,.12); }
@@ -804,6 +809,9 @@
         white-space: nowrap;
         font-size: clamp(1.05rem, 3.6vw, 1.35rem);
       }
+      .timeline-mobile-break {
+        display: block;
+      }
       .timeline-copy p {
         font-size: 1.05rem;
       }
@@ -999,7 +1007,7 @@
       <img class="timeline-photo timeline-photo--cocktail" src="./assets/timeline-cocktail.jpg" alt="Pre-lunch cocktail hour venue" />
       <span class="timeline-marker timeline-marker--cocktail" aria-hidden="true"></span>
       <article class="timeline-copy timeline-copy--cocktail right is-nowrap">
-        <h3>11:30 a.m. | Pre-lunch Canapés & Cocktail Hour</h3>
+        <h3>11:30 a.m. | Pre-lunch Canapés & <span class="timeline-mobile-break">Cocktail Hour</span></h3>
         <p>Enjoy pre-lunch canapés alongside a selection of house wines, champagne, The Peninsula Rose Sparkling Tea, and wedding cake.</p>
       </article>
 
