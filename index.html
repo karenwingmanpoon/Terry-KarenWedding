@@ -77,10 +77,9 @@
     .confetti-gif {
       position: absolute;
       left: 50%;
-      top: auto;
-      bottom: 76px;
+      top: 0;
       width: min(460px, 82vw);
-      transform: translate(-50%, 0);
+      transform: translate(-50%, -12%);
       opacity: 0;
       pointer-events: none;
       z-index: 3;
@@ -89,10 +88,10 @@
       animation: confettiDrop 2.8s ease-out forwards;
     }
     @keyframes confettiDrop {
-      0% { opacity: 0; transform: translate(-50%, -18%); }
+      0% { opacity: 0; transform: translate(-50%, -28%); }
       14% { opacity: 1; }
-      72% { opacity: 1; transform: translate(-50%, 10%); }
-      100% { opacity: 0; transform: translate(-50%, 18%); }
+      72% { opacity: 1; transform: translate(-50%, 74%); }
+      100% { opacity: 0; transform: translate(-50%, 92%); }
     }
 
     .letter-section { padding: 40px 16px 50px; text-align: center; background: var(--bg); }
@@ -221,9 +220,9 @@
     .timeline-marker::before {
       content: "♥";
       color: currentColor;
-      font-family: Georgia, "Times New Roman", serif;
       font-size: 30px;
       line-height: 1;
+      transform: translateX(-2px);
     }
     .timeline-rose {
       position: absolute;
@@ -424,7 +423,6 @@
       width: min(1040px, 88vw);
       margin: 0 auto;
       scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
       overscroll-behavior-x: contain;
       padding: 0 0 18px;
       -webkit-overflow-scrolling: touch;
@@ -731,18 +729,12 @@
       .letter-video-title { width: min(76vw, 340px); }
       .count-grid { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
       .timeline-board {
-        grid-template-columns: 26px minmax(0, 1fr);
-        row-gap: 18px;
-        width: min(620px, 96vw);
-        align-items: start;
+        grid-template-columns: 34px 1fr;
+        row-gap: 26px;
+        width: min(560px, 92vw);
       }
       .timeline-board::before {
-        left: 13px;
-        top: 0;
-        bottom: 0;
-      }
-      .timeline-board::after {
-        content: none;
+        left: 17px;
       }
       .timeline-cloud {
         width: min(170vw, 740px);
@@ -754,19 +746,13 @@
         left: 50%;
       }
       .timeline-rose {
-        left: 13px;
+        left: 17px;
         width: 42px;
         height: 42px;
       }
       .timeline-marker {
         grid-column: 1;
         grid-row: auto;
-        width: 34px;
-        height: 34px;
-      }
-      .timeline-marker::before {
-        font-size: 32px;
-        transform: none;
       }
       .timeline-photo,
       .timeline-copy,
@@ -779,30 +765,13 @@
       .timeline-photo {
         width: 100%;
         max-width: 390px;
-        margin: 4px 0 22px;
       }
-      .timeline-marker--welcome { grid-row: 1; }
-      .timeline-copy--welcome { grid-row: 1; }
-      .timeline-photo--welcome { grid-row: 2; }
-      .timeline-marker--ceremony { grid-row: 3; }
-      .timeline-copy--ceremony { grid-row: 3; }
-      .timeline-photo--ceremony { grid-row: 4; }
-      .timeline-marker--cocktail { grid-row: 5; }
-      .timeline-copy--cocktail { grid-row: 5; }
-      .timeline-photo--cocktail { grid-row: 6; }
-      .timeline-marker--luncheon { grid-row: 7; }
-      .timeline-copy--luncheon { grid-row: 7; }
-      .timeline-photo--luncheon { grid-row: 8; }
-      .timeline-marker--after-party { grid-row: 9; }
-      .timeline-copy--after-party { grid-row: 9; }
-      .timeline-photo--after-party { grid-row: 10; margin-bottom: 0; }
       .timeline-copy h3 {
-        font-size: clamp(1.16rem, 4vw, 1.35rem);
-        white-space: nowrap;
+        font-size: 1.35rem;
       }
       .timeline-copy.is-nowrap h3 {
-        white-space: nowrap;
-        font-size: clamp(1.05rem, 3.6vw, 1.35rem);
+        white-space: normal;
+        font-size: 1.35rem;
       }
       .timeline-copy p {
         font-size: 1.05rem;
@@ -840,33 +809,10 @@
         width: 100vw;
         margin: 0;
         padding: 0 18px 18px;
-        scroll-snap-type: x proximity;
-        scroll-padding-left: 18px;
-      }
-      .dress-code__card {
-        scroll-snap-align: start;
-      }
-      .rsvp-button {
-        min-width: 250px;
-        padding: 16px 54px;
-        font-size: 1.35rem;
-      }
-      .farewell {
-        min-height: 0;
-        padding-bottom: 10px;
-      }
-      .farewell-photo {
-        margin-bottom: 8px;
-      }
-      .site-credit {
-        margin-top: 0;
-        padding-top: 0;
       }
       .dress-details { margin-top: 42px; text-align: center; }
-      .dress-palette { gap: 0; flex-wrap: nowrap; }
-      .dress-palette__label { width: auto; margin: 0 18px 0 0; flex: 0 0 auto; }
-      .dress-swatch { width: clamp(48px, 13.5vw, 58px); height: clamp(48px, 13.5vw, 58px); margin-left: -8px; }
-      .dress-swatch:first-of-type { margin-left: 0; }
+      .dress-palette { gap: 10px; }
+      .dress-palette__label { width: 100%; margin: 0 0 4px; }
     }
     @media (min-width: 901px) and (max-width: 1180px) {
       .timeline-board {
@@ -898,7 +844,7 @@
       .letter-video-title { width: min(84vw, 340px); }
       .letter-envelope { margin-top: 1cm; }
       .countdown { padding-bottom: 64px; }
-      .timeline { padding-inline: 6px; }
+      .timeline { padding-inline: 12px; }
       .timeline-copy h3,
       .timeline-copy.is-nowrap h3 {
         font-size: 1.22rem;
@@ -982,37 +928,37 @@
       <img class="timeline-cloud one" src="./assets/timeline-cloud-1.png" alt="" aria-hidden="true" />
       <img class="timeline-cloud two" src="./assets/timeline-cloud-2.png" alt="" aria-hidden="true" />
       <img class="timeline-rose" src="./assets/timeline-rose.png" alt="" aria-hidden="true" />
-      <img class="timeline-photo timeline-photo--welcome" src="./assets/timeline-welcome.jpg" alt="Welcome reception setup" />
-      <span class="timeline-marker timeline-marker--welcome" aria-hidden="true"></span>
-      <article class="timeline-copy timeline-copy--welcome right">
+      <img class="timeline-photo" src="./assets/timeline-welcome.jpg" alt="Welcome reception setup" />
+      <span class="timeline-marker" aria-hidden="true"></span>
+      <article class="timeline-copy right">
         <h3>10:00 - 10:30 a.m. | Welcome Reception</h3>
         <p>We invite you to arrive for morning refreshments and gather for a warm welcome.</p>
       </article>
 
-      <article class="timeline-copy timeline-copy--ceremony left is-wide-note">
+      <article class="timeline-copy left is-wide-note">
         <h3>11:00 a.m. | The Wedding Ceremony<br>at The Front Lawn</h3>
         <p>Kindly join us as we exchange our vows, sign our marriage contract, and cut our celebration cake.<br><span class="timeline-note">(Please note the ceremony will commence promptly at 11:00 a.m.)</span></p>
       </article>
-      <span class="timeline-marker timeline-marker--ceremony" aria-hidden="true"></span>
-      <img class="timeline-photo timeline-photo--ceremony" src="./assets/wed5-3.jpg" alt="The Front Lawn ceremony setup" />
+      <span class="timeline-marker" aria-hidden="true"></span>
+      <img class="timeline-photo" src="./assets/wed5-3.jpg" alt="The Front Lawn ceremony setup" />
 
-      <img class="timeline-photo timeline-photo--cocktail" src="./assets/timeline-cocktail.jpg" alt="Pre-lunch cocktail hour venue" />
-      <span class="timeline-marker timeline-marker--cocktail" aria-hidden="true"></span>
-      <article class="timeline-copy timeline-copy--cocktail right is-nowrap">
-        <h3>11:30 a.m. | Pre-lunch Canapés & Cocktail Hour</h3>
-        <p>Enjoy pre-lunch canapés alongside a selection of house wines, champagne, The Peninsula Rose Sparkling Tea, and wedding cake.</p>
+      <img class="timeline-photo" src="./assets/timeline-cocktail.jpg" alt="Pre-lunch cocktail hour venue" />
+      <span class="timeline-marker" aria-hidden="true"></span>
+      <article class="timeline-copy right is-nowrap">
+        <h3>11:30 a.m. | Pre-lunch Canapes & Cocktail Hour</h3>
+        <p>Enjoy pre-lunch canapes alongside a selection of house wines, champagne, The Peninsula Rose Sparkling Tea, and wedding cake.</p>
       </article>
 
-      <article class="timeline-copy timeline-copy--luncheon left">
+      <article class="timeline-copy left">
         <h3>12:30 p.m. | Wedding Luncheon<br>at The Verandah</h3>
         <p>Please join us for lunch, featuring a celebratory Champagne Tower toast.</p>
       </article>
-      <span class="timeline-marker timeline-marker--luncheon" aria-hidden="true"></span>
-      <img class="timeline-photo timeline-photo--luncheon" src="./assets/timeline-luncheon.jpg" alt="Wedding luncheon at The Verandah" />
+      <span class="timeline-marker" aria-hidden="true"></span>
+      <img class="timeline-photo" src="./assets/timeline-luncheon.jpg" alt="Wedding luncheon at The Verandah" />
 
-      <img class="timeline-photo timeline-photo--after-party" src="./assets/timeline-after-party.jpg" alt="Farewell and after party venue" />
-      <span class="timeline-marker timeline-marker--after-party" aria-hidden="true"></span>
-      <article class="timeline-copy timeline-copy--after-party right">
+      <img class="timeline-photo" src="./assets/timeline-after-party.jpg" alt="Farewell and after party venue" />
+      <span class="timeline-marker" aria-hidden="true"></span>
+      <article class="timeline-copy right">
         <h3>3:00 p.m. | Farewell & After Party</h3>
         <p>The formal celebration concludes, and the after-party begins.</p>
       </article>
@@ -1371,11 +1317,36 @@
     const dressRail = document.querySelector('.dress-code__rail');
     if (dressRail) {
       dressRail.scrollLeft = 0;
+      const dressCards = Array.from(dressRail.querySelectorAll('.dress-code__card'));
+      let activeDressIndex = 0;
+      let dressStartX = 0;
+      let dressStartY = 0;
+      let dressPointerActive = false;
+      const scrollDressTo = index => {
+        activeDressIndex = Math.max(0, Math.min(dressCards.length - 1, index));
+        dressCards[activeDressIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      };
+      dressRail.addEventListener('pointerdown', event => {
+        dressPointerActive = true;
+        dressStartX = event.clientX;
+        dressStartY = event.clientY;
+        dressRail.setPointerCapture?.(event.pointerId);
+      });
+      dressRail.addEventListener('pointerup', event => {
+        if (!dressPointerActive) return;
+        dressPointerActive = false;
+        const deltaX = event.clientX - dressStartX;
+        const deltaY = event.clientY - dressStartY;
+        if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.15) {
+          scrollDressTo(activeDressIndex + (deltaX < 0 ? 1 : -1));
+        }
+      });
       dressRail.addEventListener('wheel', event => {
         if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
         event.preventDefault();
         dressRail.scrollLeft += event.deltaY;
       }, { passive: false });
+      dressRail.addEventListener('pointercancel', () => { dressPointerActive = false; });
     }
   </script>
 </body>
