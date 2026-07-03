@@ -1039,7 +1039,6 @@
       <img class="intro-image" src="./assets/intro-envelope.jpg" alt="Envelope sealed with wax" />
       <div class="intro-open-flap" aria-hidden="true"></div>
       <button class="wax-click" id="waxOpen" type="button" aria-label="Open invitation"></button>
-      <div class="intro-hint">Click to open</div>
     </div>
   </section>
 
@@ -1054,6 +1053,7 @@
 
     const intro = document.getElementById('intro');
     const waxOpen = document.getElementById('waxOpen');
+    const introImage = document.querySelector('.intro-image');
     const weddingMusic = document.getElementById('weddingMusic');
     let introOpening = false;
 
@@ -1084,6 +1084,12 @@
     };
 
     waxOpen.addEventListener('click', openIntro);
+    if (introImage) {
+      introImage.addEventListener('error', () => {
+        introImage.style.display = 'none';
+        intro.classList.add('intro-fallback');
+      });
+    }
 
     const revealSelectors = [
       '.words',
