@@ -727,6 +727,9 @@
       .scratch-grid { grid-template-columns: 1fr; max-width: 230px; margin: 0 auto 24px; }
       .words { top: 11%; }
       .line2 { margin-top: 6px; }
+      .hero video {
+        filter: contrast(1.18) saturate(1.1) brightness(1.03);
+      }
       .letter-wrap { min-height: 640px; }
       .leaf { width: min(52vw, 300px); opacity: 0.45; }
       .leaf.left { transform: translate(-54%, -50%) rotate(-14deg); }
@@ -1302,9 +1305,8 @@
 
     function updateInvitedProgress(canvas, ratio) {
       scratchProgress.set(canvas, Math.max(scratchProgress.get(canvas) || 0, ratio));
-      const total = Array.from(scratchProgress.values()).reduce((sum, value) => sum + value, 0);
-      const average = scratchProgress.size ? total / scratchProgress.size : 0;
-      if (!invitedMessageShown && average > 0.6) {
+      const allCardsRevealed = Array.from(scratchProgress.values()).every(value => value >= 0.5);
+      if (!invitedMessageShown && allCardsRevealed) {
         invitedMessageShown = true;
         invitedMessage?.classList.add('is-invited-visible');
         confettiGif?.classList.add('is-confetti-visible');
@@ -1334,7 +1336,7 @@
         let clear = 0; for (let i = 3; i < d.length; i += 4) if (d[i] < 20) clear++;
         const ratio = clear / (canvas.width * canvas.height);
         updateInvitedProgress(canvas, ratio);
-        if (ratio > 0.6) { canvas.style.transition = 'opacity .45s ease'; canvas.style.opacity = '0'; canvas.style.pointerEvents = 'none'; }
+        if (ratio >= 0.5) { canvas.style.transition = 'opacity .45s ease'; canvas.style.opacity = '0'; canvas.style.pointerEvents = 'none'; }
       }
       canvas.addEventListener('pointerdown', e => { drawing = true; const p = pos(e); scratch(p.x, p.y); });
       canvas.addEventListener('pointermove', e => { if (!drawing) return; const p = pos(e); scratch(p.x, p.y); });
